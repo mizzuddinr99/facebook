@@ -15,7 +15,10 @@ export default function LoginScreen() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ 
+          email, 
+          password: btoa(password) // Base64 encoding
+        }),
       });
 
       if (response.ok) {
