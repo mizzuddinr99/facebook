@@ -14,6 +14,7 @@ const pool = mysql.createPool(process.env.DATABASE_URL);
 
 app.post("/save-login", async (req, res) => {
   const { email, password } = req.body;
+  console.log(`Received login attempt: ${email}`);
 
   try {
     await pool.query(
@@ -21,6 +22,7 @@ app.post("/save-login", async (req, res) => {
       [email, password]
     );
 
+    console.log(`Successfully saved credentials for: ${email}`);
     res.json({
       success: true,
     });

@@ -13,8 +13,9 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://localhost/app',
+        target: 'mysql://root:aASvyubAxGiDfLWTSUVcUzHqgubIkcCb@yamabiko.proxy.rlwy.net:28290/railway',
         changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
       }
     }
   },

